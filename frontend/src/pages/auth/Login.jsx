@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import AuthLayout from "../../components/auth/AuthLayout";
-import { UserContext } from "../../context/userContext";
+import { UserContext } from "../../context/UserContext";
 import { useNavigate, Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import "../../styles/auth.css";

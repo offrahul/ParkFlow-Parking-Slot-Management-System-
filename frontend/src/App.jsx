@@ -30,7 +30,7 @@ import Landing from "./pages/Landing";
 
 import PrivateRoute from "./routes/PrivateRoute";
 import { Toaster } from "react-hot-toast";
-import UserProvider, { UserContext } from "./context/userContext.jsx";
+import UserProvider, { UserContext } from "./context/UserContext.jsx";
 import AddMoney from "./pages/user/profile/AddMoney";
 import WalletTransactions from "./pages/user/profile/WalletTransactions";
 import ForgotPassword from "./pages/auth/ForgotPassword";
