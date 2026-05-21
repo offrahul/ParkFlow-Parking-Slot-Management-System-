@@ -19,7 +19,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173",
+    origin: process.env.FRONTEND_URL,
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   },
@@ -31,13 +31,19 @@ io.on("connection", (socket) => {
   console.log("Socket Connected:", socket.id);
 
   socket.on("disconnect", () => {
-    console.log("Socket Disconnected");
+    console.log("Socket Disconnected:", socket.id);
   });
 });
 
 connectDB();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL,
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
@@ -51,6 +57,7 @@ app.use("/api/admin/reports", reportRoutes);
 app.get("/", (req, res) => {
   res.send("Smart Parking API Running 🚗");
 });
+
 
 const PORT = process.env.PORT || 5000;
 
