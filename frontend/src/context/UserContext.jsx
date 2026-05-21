@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
@@ -10,6 +11,7 @@ const UserProvider = ({ children }) => {
     const storedUser = localStorage.getItem("user");
 
     if (storedUser) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setUser(JSON.parse(storedUser));
     }
 
